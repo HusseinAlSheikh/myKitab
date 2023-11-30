@@ -15,7 +15,26 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
-
+            $table->string('code','100');
+            $table->string('name','200');
+            $table->unsignedBigInteger('part_id');
+            $table->unsignedBigInteger('study_level_id');
+            $table->boolean('schedule_in_weekend');
+            $table->smallInteger('class_capacity');
+            $table->unsignedBigInteger('period_category_id');
+            $table->foreign('part_id')
+                ->references('id')->on('parts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('study_level_id')
+                ->references('id')->on('study_levels')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('period_category_id')
+                ->references('id')->on('period_categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('instructor_study_levels', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('instructor_id');
+            $table->unsignedBigInteger('study_level_id');
+            $table->foreign('instructor_id')
+            ->references('id')->on('instructors')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreign('study_level_id')
+            ->references('id')->on('study_levels')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

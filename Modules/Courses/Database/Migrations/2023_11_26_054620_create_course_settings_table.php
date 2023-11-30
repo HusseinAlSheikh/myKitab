@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('days', function (Blueprint $table) {
+        Schema::create('course_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ar' , '200');
-            $table->string('name_en' , '200');
-            $table->string('short_name_ar' , '10');
-            $table->string('short_name_en' , '10');
-            $table->smallInteger('order');
-            $table->boolean('is_attend');
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('days');
+        Schema::dropIfExists('course_settings');
     }
 };

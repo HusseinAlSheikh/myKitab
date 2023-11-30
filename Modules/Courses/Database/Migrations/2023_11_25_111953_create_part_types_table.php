@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('part_types', function (Blueprint $table) {
             $table->id();
-
+            $table->string('name_ar', 50);
+            $table->string('name_en', 50);
+            $table->string('code', 2);
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

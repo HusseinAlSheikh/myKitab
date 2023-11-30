@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('period_categories', function (Blueprint $table) {
             $table->id();
-
+            $table->string('name_ar', 500);
+            $table->string('name_en', 500);
+            $table->string('code', 200);
+            $table->smallInteger('order');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
