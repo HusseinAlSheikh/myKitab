@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('study_plans', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('part_type_id');
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('part_type_id')
+                ->references('id')->on('part_types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('course_id')
+                ->references('id')->on('courses')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

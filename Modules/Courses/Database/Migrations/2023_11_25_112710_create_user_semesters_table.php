@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('user_semesters', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('part_id');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('part_id')
+                ->references('id')->on('parts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

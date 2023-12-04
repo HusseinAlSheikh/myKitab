@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('name','200');
             $table->unsignedBigInteger('part_id');
             $table->unsignedBigInteger('study_level_id');
-            $table->boolean('schedule_in_weekend');
+            $table->boolean('schedule_in_weekend')->default(false);
             $table->smallInteger('class_capacity');
-            $table->unsignedBigInteger('period_category_id');
+            $table->unsignedBigInteger('period_category_id')->nullable();
             $table->foreign('part_id')
                 ->references('id')->on('parts')
                 ->onUpdate('cascade')

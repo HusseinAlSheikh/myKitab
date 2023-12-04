@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('code',100);
             $table->smallInteger('order');
             $table->boolean('is_active');
-            $table->boolean('with_summer_semester');
-            $table->boolean('has_apply_plan');
+            $table->boolean('with_summer_semester')->default(false);
+            $table->boolean('has_apply_plan')->default(false);
             $table->foreign('category_id')
                 ->references('id')->on('study_level_categories')
                 ->onUpdate('cascade')

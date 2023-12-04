@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('period_levels', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('period_id');
+            $table->unsignedBigInteger('study_level_id');
+            $table->foreign('period_id')
+                ->references('id')->on('periods')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('study_level_id')
+                ->references('id')->on('study_levels')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

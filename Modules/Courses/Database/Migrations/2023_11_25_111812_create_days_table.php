@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('short_name_ar' , '10');
             $table->string('short_name_en' , '10');
             $table->smallInteger('order');
-            $table->boolean('is_attend');
+            $table->boolean('is_attend')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

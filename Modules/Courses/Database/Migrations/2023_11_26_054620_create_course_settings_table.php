@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('course_settings', function (Blueprint $table) {
             $table->id();
-
+            $table->string('input_title_ar' , 200);
+            $table->string('input_title_en',200);
+            $table->string('input_title_code',200);
+            $table->string('input_title_type',200);
+            $table->string('input_title_value',200);
             $table->timestamps();
         });
     }
