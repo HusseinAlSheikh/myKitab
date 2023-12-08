@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('day_id');
             $table->unsignedBigInteger('course_id');
             $table->foreign('class_id')
-                ->references('id')->on('classes')
+                ->references('id')->on('crs_classes')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreign('instructor_id')

@@ -15,4 +15,8 @@ class Course extends Model
     {
         return \Modules\Courses\Database\factories\CourseFactory::new();
     }
+
+    function category(){
+        return $this->belongsTo(CourseCategory::class);
+    }
 }

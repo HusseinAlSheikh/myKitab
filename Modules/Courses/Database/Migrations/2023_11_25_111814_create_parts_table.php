@@ -27,14 +27,15 @@ return new class extends Migration
             $table->smallInteger('semester_order' )->nullable();
             $table->string('year_name_ar' ,500 )->nullable();
             $table->string('year_name_en' , 500)->nullable();
-            $table->foreign('parent_part_id')
-            ->references('id')->on('parts')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+//            $table->foreign('parent_part_id')
+//            ->references('id')->on('parts')
+//            ->onUpdate('cascade')
+//            ->onDelete('cascade');
             $table->foreign('part_type_id')
             ->references('id')->on('part_types')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+//            $table->primary('id');
             $table->softDeletes();
             $table->timestamps();
         });

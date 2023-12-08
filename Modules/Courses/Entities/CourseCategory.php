@@ -15,4 +15,8 @@ class CourseCategory extends Model
     {
         return \Modules\Courses\Database\factories\CourseCategoryFactory::new();
     }
+
+    function courses(){
+        return $this->hasMany(Course::class);
+    }
 }

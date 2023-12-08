@@ -15,4 +15,6 @@ class ClassSchedule extends Model
     {
         return \Modules\Courses\Database\factories\ClassScheduleFactory::new();
     }
+
+
 }

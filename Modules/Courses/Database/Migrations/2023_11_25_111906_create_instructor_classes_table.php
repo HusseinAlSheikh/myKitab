@@ -22,7 +22,7 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreign('class_id')
-            ->references('id')->on('classes')
+            ->references('id')->on('crs_classes')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->softDeletes();

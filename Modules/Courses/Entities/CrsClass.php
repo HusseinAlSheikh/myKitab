@@ -5,7 +5,7 @@ namespace Modules\Courses\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Class extends Model
+class crsClass extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,6 @@ class Class extends Model
     
     protected static function newFactory()
     {
-        return \Modules\Courses\Database\factories\ClassFactory::new();
+        return \Modules\Courses\Database\factories\CrsClassFactory::new();
     }
 }

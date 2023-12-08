@@ -15,7 +15,13 @@ class CoursesDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
+        $this->call(DaysSeederTableSeeder::class);
+        $this->call(CourseCategoriesSeederTableSeeder::class);
+        $this->call(PartTypesSeederTableSeeder::class);
+        $this->call(PartsSeederTableSeeder::class);
+        $this->call(StudyLevelCategoriesSeederTableSeeder::class);
+        $this->call(StudyLevelsSeederTableSeeder::class);
+        $this->call(CourseSettingSeederTableSeeder::class);
         // $this->call("OthersTableSeeder");
     }
 }
